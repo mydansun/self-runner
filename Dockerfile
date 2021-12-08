@@ -4,7 +4,7 @@ ARG GH_RUNNER_VERSION="2.285.1"
 ARG TARGETPLATFORM
 
 USER root
-RUN export DEBIAN_FRONTEND='noninteractive
+RUN export DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN apt-get install dumb-init mysql-client -y -qq
 

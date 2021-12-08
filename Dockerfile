@@ -3,6 +3,7 @@ FROM ghcr.io/catthehacker/ubuntu:full-20.04
 ARG GH_RUNNER_VERSION="2.285.1"
 ARG TARGETPLATFORM
 
+USER root
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 WORKDIR /actions-runner

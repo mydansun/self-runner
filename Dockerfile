@@ -4,6 +4,7 @@ ARG GH_RUNNER_VERSION="2.285.1"
 ARG TARGETPLATFORM
 
 USER root
+RUN apt-get install dumb-init -y
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 WORKDIR /actions-runner
@@ -15,3 +16,6 @@ RUN chmod +x /actions-runner/install_actions.sh \
 
 COPY token.sh entrypoint.sh ephemeral-runner.sh /
 RUN chmod +x /token.sh /entrypoint.sh /ephemeral-runner.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["./bin/Runner.Listener", "run", "--startuptype", "service"]

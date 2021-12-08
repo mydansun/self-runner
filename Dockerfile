@@ -4,7 +4,8 @@ ARG GH_RUNNER_VERSION="2.285.1"
 ARG TARGETPLATFORM
 
 USER root
-RUN apt-get install dumb-init -y
+RUN apt-get update
+RUN apt-get install dumb-init mysql-client -y
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 WORKDIR /actions-runner
